@@ -102,7 +102,7 @@
     footer{padding:8vh 0 400px}
     footer .contact, footer .meta, footer .motto{margin-left:0}
     footer .wrap{position:static!important}
-    .hand{width:190px;left:calc(50vw - 246px);bottom:-60px}
+    .hand{width:260px;left:calc(50vw - 342px);bottom:-40px}
   }
 </style>
 
@@ -513,7 +513,7 @@
   let groups=[], frames=[], mats=[], geos=[], edgeMats=[], N=0, PAN=0, PANV=0, SPAN=1;
   const dir=new THREE.Vector3(1,1,1).normalize();
   let CAM=null;
-  console.log('penrose build 62');
+  console.log('penrose build 71 — production');
   // forced-occlusion: cyclic 3-corner illusion (each beam covers the next)
   let overlays=[], illOn=true, cw=true, idOn=false, redrawFill=null, redrawFirst=0;
   const ID_TINTS=[0xdcecff,0xffdcec,0xfff0d2];
@@ -787,8 +787,8 @@
       PANC = PAN*(1-t)         + STORY.foot.pan*SPAN*t;
       PANVC= PANV*(1-t)        + STORY.foot.pv*SPAN*t;
       if(window.innerWidth<820){          // mobile: hero slot right of the name,
-        FRC*=1.35;                        // landing centered low above the hand
-        PANVC+=SPAN*(0.30*(1-t)+1.05*t);
+        FRC*=(1.35*(1-t)+1.05*t);         // landing: larger figure, higher, centered
+        PANVC+=SPAN*(0.30*(1-t)+0.10*t);
         MOBPAN=SPAN*(0.44*(1-t)+0.28*t);
       }
       applyFrustum();
